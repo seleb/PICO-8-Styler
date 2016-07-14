@@ -31,7 +31,16 @@
 
 		<h2>Pretty PICO-8 Pages!</h2>
 
-		<p>The output is pretty much the same as the built-in PICO-8 exporter (v0.1.8). Differences are listed below:</p>
+		<h3>Instructions:</h3>
+		<ol>
+			<li>Enter the name of the game (this needs to be the same as the exported js file)</li>
+			<li>Pick the colours</li>
+			<li>Click "Create"</li>
+			<li>Save the opened page</li>
+		</ol>
+
+		<p>The output is pretty much the same as the built-in PICO-8 exporter (v0.1.8). Most of the changes are just cosmetic, but there are a couple javascript things too.</p>
+		<h3>Differences:</h3>
 		<ul>
 			<li>Page colours can be customized (background, button background/hover, text)</li>
 			<li>Canvas scale can be customized, has no border, and defaults to 512x512</li>
@@ -51,7 +60,14 @@
 
 	<div class="container">
 		<form action="stuff/PICO-8-Styler/template.php" method="GET" target="_blank">
-			<label>Game (name of js file): <input type="text" name="game" id="game"/></label>
+			<label>Game: <input type="text" name="game" id="game"/></label>
+
+			<label>Colours:</label>
+			<label>Page background: <input type="color" value="#000000" name="color-bg" id="color-bg"/></label>
+			<label>Button background: <input type="color" value="#666666" name="color-btnBg" id="color-btnBg"/></label>
+			<label>Button background (hover): <input type="color" value="#BBBBBB" name="color-btnBgHover" id="color-btnBgHover"/></label>
+			<label>Text: <input type="color" value="#FFFFFF" name="color-text" id="color-text"/></label>
+
 			<input type="hidden" name="includeButtons" id="includeButtonsHidden" value="0"/>
 			<label>Include buttons (recommended): <input type="checkbox" name="includeButtons" id="includeButtons" value="1" checked/></label>
 			<button type="submit">Create</button>
