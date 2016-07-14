@@ -22,7 +22,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title><?php echo $game; ?>PICO-8 Cartridge</title>
+		<title><?php echo $game; ?> PICO-8 Cartridge</title>
 		<meta name="description" content="">
 
 		<style type="text/css">
