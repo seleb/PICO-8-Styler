@@ -30,6 +30,17 @@
 
 		<h2>Pretty PICO-8 Pages!</h2>
 
+		<p>The output is pretty much the same as the built-in PICO-8 exporter (v0.1.8). Differences are listed below:</p>
+		<ul>
+			<li>Page colours can be customized (background, button background/hover, text)</li>
+			<li>Canvas scale can be customized, has no border, and defaults to 512x512</li>
+			<li>Canvas is centered horizontally and vertically</li>
+			<li>Canvas uses image-rendering CSS for sharper fullscreen viewing</li>
+			<li>First script tag includes "var require = null;" in order to address a node.js issue which prevents PICO-8 games from running in things like NW.js</li>
+			<li>Buttons are "text-align:center" instead of "float:left"</li>
+			<li>Buttons are slightly smaller to better fit default canvas size</li>
+			<li>Buttons can be excluded</li>
+		</ul>
 	</div>
 </header>
 
