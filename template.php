@@ -6,10 +6,10 @@
 
 	$game = get("game", "star picker-upper");
 	$colors = array(
-		"text"=>"#" . get("color-text", "FFF"),
-		"bg"=>"#" . get("color-bg", "FF0"),
-		"btnBg"=>"#" . get("color-btnBg", "B00"),
-		"btnBgHover"=>"#" . get("color-btnBgHover", "F00")
+		"text"=>get("color-text", "#FFF"),
+		"bg"=>get("color-bg", "#000"),
+		"btnBg"=>get("color-btnBg", "#666"),
+		"btnBgHover"=>get("color-btnBgHover", "#BBB")
 	);
 
 	$width = 128*get("scale", "4");
