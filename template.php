@@ -1,5 +1,9 @@
 ﻿<?php
 	$name = "star picker-upper";
+	// basically just a null coelesce
+	function get($s,$dv){
+		return isset($_GET[$s]) ? $_GET[$s] : $dv;
+	}
 	$colors = array(
 		"text"=>"#FFF",
 		"bg"=>"#FF0",
