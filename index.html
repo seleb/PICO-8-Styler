@@ -20,6 +20,33 @@
 	label{
 		display:block;
 	}
+	a{
+		font-weight: bold;
+		color:#fa5c5c;
+	}
+	a:hover{
+		color:#ff8585;
+	}
+
+	h3,button{
+		font-size:1.2em;
+	}
+	button{
+		padding:5px;
+		border:0;
+		border-bottom: solid 1px white;
+
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+
+		font-weight: bold;
+		color:#FFF;
+		background-color:#fa5c5c;
+	}
+	button:hover{
+		background-color:#ff8585;
+	}
 	</style>
 
 	<script>
@@ -30,9 +57,14 @@
 		}
 	</script>
 
+	<!-- SPECTRUM -->
     <script type="text/javascript" src="vendor/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="vendor/spectrum.js"></script>
     <link rel="stylesheet" type="text/css" href="vendor/spectrum.css">
+
+    <!-- COLLAPSIBLE -->
+    <script type="text/javascript" src="collapsible.js"></script>
+    <link rel="stylesheet" type="text/css" href="collapsible.css">
 </head>
 
 <body>
@@ -43,29 +75,39 @@
 
 		<h2>Pretty PICO-8 Pages!</h2>
 
-		<h3>Instructions:</h3>
-		<ol>
-			<li>Pick colours</li>
-			<li>Enter the name of the game (this needs to be the same as the exported js file)</li>
-			<li>Click "Create"</li>
-			<li>Save the opened page</li>
-			<li>Copy into the same directory as the exported js file</li>
-		</ol>
+		<div class="section section-open">
+			<h3 class="section-header"><span class="indicator"></span>Instructions</h3>
+			<ol class="section-content">
+				<li>Pick colours</li>
+				<li>Enter the name of the game (this needs to be the same as the exported js file)</li>
+				<li>Click "Create"</li>
+				<li>Save the opened page</li>
+				<li>Copy into the same directory as the exported js file</li>
+			</ol>
+		</div>
 
-		<p>The output is pretty much the same as the built-in PICO-8 exporter (v0.1.8). Most of the changes are just cosmetic, but there are a couple javascript things too.</p>
-		<h3>Differences:</h3>
-		<ul>
-			<li>Page colours can be customized (background, button background/hover, text)</li>
-			<li>Canvas scale can be customized, has no border, and defaults to 512x512</li>
-			<li>Canvas is centered horizontally and vertically</li>
-			<li>Canvas uses image-rendering CSS for sharper fullscreen viewing</li>
-			<li>First script tag includes "var require = null;" in order to address a node.js issue which prevents PICO-8 games from running in things like NW.js</li>
-			<li>Buttons are "text-align:center" instead of "float:left"</li>
-			<li>Buttons are slightly smaller to better fit default canvas size</li>
-			<li>Buttons can be excluded</li>
-		</ul>
+		<div class="section section-open">
+			<h3 class="section-header"><span class="indicator"></span>Features</h3>
+			<ul class="section-content">
+				<li>Page colours can be customized (background, button background/hover, text)</li>
+				<li>Canvas scale can be customized, has no border, and defaults to 512x512</li>
+				<li>Canvas is centered horizontally and vertically</li>
+				<li>Canvas uses image-rendering CSS for sharper fullscreen viewing</li>
+				<li>First script tag includes "var require = null;" in order to address a node.js issue which prevents PICO-8 games from running in things like NW.js</li>
+				<li>Buttons are "text-align:center" instead of "float:left"</li>
+				<li>Buttons are slightly smaller to better fit default canvas size</li>
+				<li>Buttons can be excluded</li>
+			</ul>
+		</div>
 
-		<p>Uses the <a href="https://bgrins.github.io/spectrum/">Spectrum</a> color picker.</p>
+		<div class="section section-open">
+			<h3 class="section-header"><span class="indicator"></span>Credits</h3>
+			<ul class="section-content">
+				<li>Original HTML template: <a href="http://www.lexaloffle.com/pico-8.php">PICO-8 v0.1.8</a></li>
+				<li>Colour palette: <a href="http://www.lexaloffle.com/gfx/pico8_pal_017.png">PICO-8</a></li>
+				<li>Colour picker: <a href="https://bgrins.github.io/spectrum/">Spectrum</a></li>
+			</ul>
+		</div>
 	</div>
 </header>
 
@@ -76,7 +118,7 @@
 	<div class="container">
 		<form action="http://seans.site/stuff/PICO-8-Styler/template.php" method="GET" target="_blank">
 
-			<h3>Colours:</h3>
+			<h3>Colours</h3>
 
 			<button type="button" onclick='$("input.color-picker").spectrum("option", "showPaletteOnly", !$("input.color-picker").spectrum("option", "showPaletteOnly"));'>Toggle detail</button>
 
@@ -148,6 +190,7 @@
 	    preferredFormat: "rgb"
 	});
 
+	refreshCollapsibles();
 </script>
 </body>
 </html>
