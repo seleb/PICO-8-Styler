@@ -29,6 +29,10 @@
 			t.onchange();
 		}
 	</script>
+
+    <script type="text/javascript" src="vendor/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="vendor/spectrum.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/spectrum.css">
 </head>
 
 <body>
@@ -60,6 +64,8 @@
 			<li>Buttons are slightly smaller to better fit default canvas size</li>
 			<li>Buttons can be excluded</li>
 		</ul>
+
+		<p>Uses the <a href="https://bgrins.github.io/spectrum/">Spectrum</a> color picker.</p>
 	</div>
 </header>
 
@@ -71,81 +77,25 @@
 		<form action="http://seans.site/stuff/PICO-8-Styler/template.php" method="GET" target="_blank">
 
 			<h3>Colours:</h3>
-			
-			<label>Page background: <input type="color" value="#fff1e8" name="color-bg" id="color-bg" onchange="document.getElementById('preview-page').style.background=this.value;"/></label>
-			<button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#000000" style="background:#000000;width:2em;height:2em; color:#FFF;">0</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#1d2b53" style="background:#1d2b53;width:2em;height:2em; color:#FFF;">1</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#7e2553" style="background:#7e2553;width:2em;height:2em; color:#FFF;">2</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#008751" style="background:#008751;width:2em;height:2em; color:#FFF;">3</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#ab5236" style="background:#ab5236;width:2em;height:2em; color:#FFF;">4</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#5f574f" style="background:#5f574f;width:2em;height:2em; color:#FFF;">5</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#c2c3c7" style="background:#c2c3c7;width:2em;height:2em;">6</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#fff1e8" style="background:#fff1e8;width:2em;height:2em;">7</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#ff004d" style="background:#ff004d;width:2em;height:2em;">8</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#ffa300" style="background:#ffa300;width:2em;height:2em;">9</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#fff024" style="background:#fff024;width:2em;height:2em;">10</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#00e756" style="background:#00e756;width:2em;height:2em;">11</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#29adff" style="background:#29adff;width:2em;height:2em;">12</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#83769c" style="background:#83769c;width:2em;height:2em;">13</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#ff77a8" style="background:#ff77a8;width:2em;height:2em;">14</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-bg" data-color="#ffccaa" style="background:#ffccaa;width:2em;height:2em;">15</button>
-			
-			<hr/>
-			<label>Button background: <input type="color" value="#5f574f" name="color-btnBg" id="color-btnBg" onchange="document.getElementById('preview-buttons').style.background=this.value;"/></label>
-			<button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#000000" style="background:#000000;width:2em;height:2em; color:#FFF;">0</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#1d2b53" style="background:#1d2b53;width:2em;height:2em; color:#FFF;">1</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#7e2553" style="background:#7e2553;width:2em;height:2em; color:#FFF;">2</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#008751" style="background:#008751;width:2em;height:2em; color:#FFF;">3</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#ab5236" style="background:#ab5236;width:2em;height:2em; color:#FFF;">4</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#5f574f" style="background:#5f574f;width:2em;height:2em; color:#FFF;">5</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#c2c3c7" style="background:#c2c3c7;width:2em;height:2em;">6</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#fff1e8" style="background:#fff1e8;width:2em;height:2em;">7</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#ff004d" style="background:#ff004d;width:2em;height:2em;">8</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#ffa300" style="background:#ffa300;width:2em;height:2em;">9</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#fff024" style="background:#fff024;width:2em;height:2em;">10</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#00e756" style="background:#00e756;width:2em;height:2em;">11</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#29adff" style="background:#29adff;width:2em;height:2em;">12</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#83769c" style="background:#83769c;width:2em;height:2em;">13</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#ff77a8" style="background:#ff77a8;width:2em;height:2em;">14</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBg" data-color="#ffccaa" style="background:#ffccaa;width:2em;height:2em;">15</button>
-			
-			<hr/>
-			<label>Button background (hover): <input type="color" value="#c2c3c7" name="color-btnBgHover" id="color-btnBgHover" onchange=""/></label>
-			<button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#000000" style="background:#000000;width:2em;height:2em; color:#FFF;">0</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#1d2b53" style="background:#1d2b53;width:2em;height:2em; color:#FFF;">1</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#7e2553" style="background:#7e2553;width:2em;height:2em; color:#FFF;">2</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#008751" style="background:#008751;width:2em;height:2em; color:#FFF;">3</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#ab5236" style="background:#ab5236;width:2em;height:2em; color:#FFF;">4</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#5f574f" style="background:#5f574f;width:2em;height:2em; color:#FFF;">5</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#c2c3c7" style="background:#c2c3c7;width:2em;height:2em;">6</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#fff1e8" style="background:#fff1e8;width:2em;height:2em;">7</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#ff004d" style="background:#ff004d;width:2em;height:2em;">8</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#ffa300" style="background:#ffa300;width:2em;height:2em;">9</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#fff024" style="background:#fff024;width:2em;height:2em;">10</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#00e756" style="background:#00e756;width:2em;height:2em;">11</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#29adff" style="background:#29adff;width:2em;height:2em;">12</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#83769c" style="background:#83769c;width:2em;height:2em;">13</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#ff77a8" style="background:#ff77a8;width:2em;height:2em;">14</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-btnBgHover" data-color="#ffccaa" style="background:#ffccaa;width:2em;height:2em;">15</button>
-			
-			<hr/>
-			<label>Text: <input type="color" value="#fff1e8" name="color-text" id="color-text" onchange="document.getElementById('preview-buttons').style.color=this.value;"/></label>
-			<button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#000000" style="background:#000000;width:2em;height:2em; color:#FFF;">0</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#1d2b53" style="background:#1d2b53;width:2em;height:2em; color:#FFF;">1</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#7e2553" style="background:#7e2553;width:2em;height:2em; color:#FFF;">2</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#008751" style="background:#008751;width:2em;height:2em; color:#FFF;">3</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#ab5236" style="background:#ab5236;width:2em;height:2em; color:#FFF;">4</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#5f574f" style="background:#5f574f;width:2em;height:2em; color:#FFF;">5</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#c2c3c7" style="background:#c2c3c7;width:2em;height:2em;">6</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#fff1e8" style="background:#fff1e8;width:2em;height:2em;">7</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#ff004d" style="background:#ff004d;width:2em;height:2em;">8</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#ffa300" style="background:#ffa300;width:2em;height:2em;">9</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#fff024" style="background:#fff024;width:2em;height:2em;">10</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#00e756" style="background:#00e756;width:2em;height:2em;">11</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#29adff" style="background:#29adff;width:2em;height:2em;">12</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#83769c" style="background:#83769c;width:2em;height:2em;">13</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#ff77a8" style="background:#ff77a8;width:2em;height:2em;">14</button><!-- 
-			 --><button type="button" onclick="pickcolor(event);" data-target="color-text" data-color="#ffccaa" style="background:#ffccaa;width:2em;height:2em;">15</button>
+
+
+			<table style="table-layout:fixed;">
+				<thead>
+					<tr>
+						<th>Page background</th>
+						<th>Button background</th>
+						<th>Button background (hover)</th>
+						<th>Text</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" class="color-picker" value="#fff1e8" name="color-bg" id="color-bg" onchange="document.getElementById('preview-page').style.background=this.value;"/></td>
+						<td><input type="text" class="color-picker" value="#5f574f" name="color-btnBg" id="color-btnBg" onchange="document.getElementById('preview-buttons').style.background=this.value;"/></td>
+						<td><input type="text" class="color-picker" value="#c2c3c7" name="color-btnBgHover" id="color-btnBgHover" onchange=""/></td>
+						<td><input type="text" class="color-picker" value="#fff1e8" name="color-text" id="color-text" onchange="document.getElementById('preview-buttons').style.color=this.value;"/></td>
+				</tbody>
+			</table>
 
 			<input type="hidden" name="includeButtons" id="includeButtonsHidden" value="0"/>
 			<label>Include buttons (recommended): <input type="checkbox" name="includeButtons" id="includeButtons" value="1" checked/></label>
@@ -165,5 +115,38 @@
 	</div>
 </section>
 
+
+<script type="text/javascript">
+	$("input.color-picker").spectrum({
+		showAlpha: true,
+		flat: true,
+		showInput: true,
+		showPalette: true,
+		showPaletteOnly: true,
+		showSelectionPalette: false,
+		palette: [
+			'rgb(0,0,0)',
+			'rgb(29,43,83)',
+			'rgb(126,37,83)',
+			'rgb(0,135,81)',
+			'rgb(171,82,54)',
+			'rgb(95,87,79)',
+			'rgb(194,195,199)',
+			'rgb(255,241,232)',
+			'rgb(255,0,77)',
+			'rgb(255,163,0)',
+			'rgb(255,240,36)',
+			'rgb(0,231,86)',
+			'rgb(41,173,255)',
+			'rgb(131,118,156)',
+			'rgb(255,119,168)',
+			'rgb(255,204,170)',
+			'rgba(0,0,0,0)'
+		],
+		showButtons:false,
+	    preferredFormat: "rgb"
+	});
+
+</script>
 </body>
 </html>
