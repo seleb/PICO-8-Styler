@@ -86,7 +86,7 @@
 		</style>
 	</head>
 
-	<body bgcolor=<?php echo $colors["bg"]; ?>>
+	<body style="background:<?php echo $colors["bg"]; ?>">
 		<center>
 			<div style="width:<?php echo $width; ?>px;">
 				<!-- CANVAS -->
