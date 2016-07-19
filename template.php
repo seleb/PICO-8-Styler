@@ -108,7 +108,17 @@
 
 				<!-- SCRIPTS -->
 				<script type="text/javascript">
-					var require = null; // fix for node.js issue (prevents game from running when opened in something like nwjs)
+					var require = null; // fix for node.js issue (prevents game from running when opened in something like NW.js)
+
+					// if using NW.js, let ESC exit fullscreen (no way to get out of it otherwise)
+					if (typeof nw !== 'undefined' && nw !== null) {
+						nw.App.registerGlobalHotKey(new nw.Shortcut({
+							key: "Escape",
+							active: function() {
+								nw.Window.get().leaveFullscreen();
+							}
+						}));
+					}
 
 					var canvas = document.getElementById("canvas");
 					canvas.width = window.innerWidth;
