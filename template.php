@@ -16,6 +16,7 @@
 	$height = 128*get("scale", "4");
 
 	$includeButtons = get("includeButtons", true);
+	$btnHeight = get("btnHeight", "24") - 8;
 ?>
 
 <html>
@@ -37,7 +38,7 @@
 		center{
 			text-align:center;
 			width:<?php echo $width; ?>px;
-			height:<?php echo $height; ?>px;
+			height:<?php echo $height + ($includeButtons ? ($btnHeight + 9) : 0); ?>px;
 			position:absolute;
 			display:block;
 			top:0;
@@ -61,8 +62,10 @@
 		<?php if($includeButtons){ ?>
 		.pico8_el{
 			width:92px;
+			height:<?php echo $btnHeight; ?>px;
 			display:inline-block; 
 			margin: 1px;
+			margin-bottom:0;
 			padding: 4px;
 			text-align: center;
 			color:<?php echo $colors["text"]; ?>;
