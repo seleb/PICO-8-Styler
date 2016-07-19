@@ -77,6 +77,15 @@
 			-webkit-user-select: none;
 			-ms-user-select: none;
 		}
+		.pico8_el img{
+			image-rendering: -moz-crisp-edges;
+			image-rendering:   -o-crisp-edges;
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+			-ms-interpolation-mode: nearest-neighbor;
+			image-rendering: pixelated;
+		}
+
 		.pico8_el a{
 			text-decoration: none;
 			color:<?php echo $colors["text"]; ?>;
