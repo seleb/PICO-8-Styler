@@ -71,6 +71,11 @@
 			font-size: 9pt;
 			cursor: pointer;
 			cursor: hand;
+
+			user-select: none;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
 		}
 		.pico8_el a{
 			text-decoration: none;
