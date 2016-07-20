@@ -18,7 +18,6 @@
 	$includeButtons = get("includeButtons", true);
 
 	if($includeButtons){
-
 		$includeBtnRestart = get("includeBtnRestart", true);
 		$includeBtnPause = get("includeBtnPause", true);
 		$includeBtnFullscreen = get("includeBtnFullscreen", true);
@@ -26,6 +25,7 @@
 		$includeBtnLink = get("includeBtnLink", true);
 
 		$btnHeight = get("btnHeight", "24") - 8;
+		$btnWidth = get("btnWidth", "100") - 8;
 		$btnLinkLbl = get("btnLinkLbl", "Carts");
 		$btnLinkTgt = get("btnLinkTgt", "http://www.lexaloffle.com/bbs/?cat=7&sub=2");
 	}
@@ -73,7 +73,7 @@
 
 		<?php if($includeButtons){ ?>
 		.pico8_el{
-			width:92px;
+			width:<?php echo $btnWidth; ?>px;
 			height:<?php echo $btnHeight; ?>px;
 			display:inline-block; 
 			margin: 1px;
