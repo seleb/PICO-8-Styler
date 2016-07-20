@@ -122,9 +122,9 @@
 	<div class="container">
 		<form action="http://seans.site/stuff/PICO-8-Styler/template.php" method="GET" target="_blank">
 
-			<h3>Colours</h3>
+			<h3>Colour Options</h3>
 
-			<button type="button" onclick='$("input.color-picker").spectrum("option", "showPaletteOnly", !$("input.color-picker").spectrum("option", "showPaletteOnly"));'>Toggle detail</button>
+			<button type="button" onclick='$("input.color-picker").spectrum("option", "showPaletteOnly", !$("input.color-picker").spectrum("option", "showPaletteOnly"));'>Toggle detailed colours</button>
 
 			<table style="table-layout:fixed;">
 				<thead>
@@ -144,13 +144,30 @@
 				</tbody>
 			</table>
 
+			<h3>Button Options</h3>
+
 			<input type="hidden" name="includeButtons" id="includeButtonsHidden" value="0"/>
 			<label>Include buttons (recommended): <input type="checkbox" name="includeButtons" id="includeButtons" value="1" checked/></label>
 
+			<input type="hidden" name="includeBtnRestart" id="includeBtnRestartHidden" value="0"/>
+			<label class="btnDetail">Include restart button: <input type="checkbox" name="includeBtnRestart" id="includeBtnRestart" value="1" checked/></label>
+			<input type="hidden" name="includeBtnPause" id="includeBtnPauseHidden" value="0"/>
+			<label class="btnDetail">Include pause button: <input type="checkbox" name="includeBtnPause" id="includeBtnPause" value="1" checked/></label>
+			<input type="hidden" name="includeBtnFullscreen" id="includeBtnFullscreenHidden" value="0"/>
+			<label class="btnDetail">Include fullscreen button: <input type="checkbox" name="includeBtnFullscreen" id="includeBtnFullscreen" value="1" checked/></label>
+			<input type="hidden" name="includeBtnSound" id="includeBtnSoundHidden" value="0"/>
+			<label class="btnDetail">Include sound button: <input type="checkbox" name="includeBtnSound" id="includeBtnSound" value="1" checked/></label>
+			<input type="hidden" name="includeBtnLink" id="includeBtnLinkHidden" value="0"/>
+			<label class="btnDetail">Include link button: <input type="checkbox" name="includeBtnLink" id="includeBtnLink" value="1" checked/></label>
+
+			<label class="btnDetail">Link button label: <input type="text" value="Carts" name="btnLinkLbl" id="btnLinkLbl"/></label>
+			<label class="btnDetail">Link button target: <input type="text" value="http://www.lexaloffle.com/bbs/?cat=7&sub=2" name="btnLinkTgt" id="btnLinkTgt"/></label>
+
+			<h3>Misc. Options</h3>
+
 			<label>Scale: <input type="number" name="scale" id="scale" value="4"/></label>
-
 			<label>Game: <input type="text" name="game" id="game"/></label>
-
+			<br/>
 			<button type="submit">Create</button>
 		</form>
 
@@ -196,6 +213,11 @@
 	    preferredFormat: "rgb"
 	});
 
+	function toggleBtnDetail(){
+		$(".btnDetail").toggle();
+	}
+
+	$("#includeButtons").click(toggleBtnDetail);
 	refreshCollapsibles();
 </script>
 </body>
