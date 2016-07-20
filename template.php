@@ -17,6 +17,8 @@
 
 	$includeButtons = get("includeButtons", true);
 
+	$totalHeight = $height;
+
 	if($includeButtons){
 		$includeBtnRestart = get("includeBtnRestart", true);
 		$includeBtnPause = get("includeBtnPause", true);
@@ -24,10 +26,14 @@
 		$includeBtnSound = get("includeBtnSound", true);
 		$includeBtnLink = get("includeBtnLink", true);
 
+		$btnCount = $includeBtnRestart+$includeBtnPause+$includeBtnFullscreen+$includeBtnSound+$includeBtnLink;
+
 		$btnHeight = get("btnHeight", "24") - 8;
 		$btnWidth = get("btnWidth", "100") - 8;
 		$btnLinkLbl = get("btnLinkLbl", "Carts");
 		$btnLinkTgt = get("btnLinkTgt", "http://www.lexaloffle.com/bbs/?cat=7&sub=2");
+
+		$totalHeight += ($btnHeight+9)*ceil($btnCount/max(1,floor($width/$btnWidth)));
 	}
 ?>
 
@@ -50,7 +56,7 @@
 		center{
 			text-align:center;
 			width:<?php echo $width; ?>px;
-			height:<?php echo $height + ($includeButtons ? ($btnHeight + 9) : 0); ?>px;
+			height:<?php echo $totalHeight; ?>px;
 			position:absolute;
 			display:block;
 			top:0;
