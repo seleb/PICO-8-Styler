@@ -85,7 +85,6 @@
 			font-family : verdana, sans-serif;
 			font-size: 9pt;
 			cursor: pointer;
-			cursor: hand;
 
 			user-select: none;
 			-moz-user-select: none;
