@@ -122,79 +122,84 @@
 <section class="content">
 
 	<div class="container">
-		<form action="http://seans.site/stuff/PICO-8-Styler/template.php" method="GET" target="_blank">
+		<form action="http://seans.site/stuff/PICO-8-Styler/template-beta.php" method="GET" target="_blank">
 
-			<h3>Button Options</h3>
+			<section style="display:inline-block;float:left;">
+				<h3>Button Options</h3>
 
-			<input type="hidden" name="includeButtons" id="includeButtonsHidden" value="0"/>
-			<label>Include buttons (recommended): <input type="checkbox" name="includeButtons" id="includeButtons" value="1" checked/></label>
+				<input type="hidden" name="includeButtons" id="includeButtonsHidden" value="0"/>
+				<label>Include buttons (recommended): <input type="checkbox" name="includeButtons" id="includeButtons" value="1" checked/></label>
 
-			<table border=1 gap=0>
-				<tr>
-					<td>
-						<input type="hidden" name="includeBtnRestart" id="includeBtnRestartHidden" value="0"/>
-						<label class="btnDetail">Restart: <input type="checkbox" name="includeBtnRestart" id="includeBtnRestart" value="1" checked/></label>
-					</td>
-					<td>
-						<input type="hidden" name="includeBtnPause" id="includeBtnPauseHidden" value="0"/>
-						<label class="btnDetail">Pause: <input type="checkbox" name="includeBtnPause" id="includeBtnPause" value="1" checked/></label>
-					</td>
-					<td>
-						<input type="hidden" name="includeBtnFullscreen" id="includeBtnFullscreenHidden" value="0"/>
-						<label class="btnDetail">Fullscreen: <input type="checkbox" name="includeBtnFullscreen" id="includeBtnFullscreen" value="1" checked/></label>
-					</td>
-					<td>
-						<input type="hidden" name="includeBtnSound" id="includeBtnSoundHidden" value="0"/>
-						<label class="btnDetail">Sound: <input type="checkbox" name="includeBtnSound" id="includeBtnSound" value="1" checked/></label>
-			
-					</td>
-					<td>
-						<input type="hidden" name="includeBtnLink" id="includeBtnLinkHidden" value="0"/>
-						<label class="btnDetail">Link: <input type="checkbox" name="includeBtnLink" id="includeBtnLink" value="1" checked/></label>
-					</td>
-				</tr>
-			</table>
-			
-			
-			<label class="btnDetail">Link button label: <input type="text" value="Carts" name="btnLinkLbl" id="btnLinkLbl"/></label>
-			<label class="btnDetail">Link button target: <input type="text" value="http://www.lexaloffle.com/bbs/?cat=7&sub=2" name="btnLinkTgt" id="btnLinkTgt"/></label>
-
-			<label class="btnDetail">Button width: <input type="number" value="100" name="btnWidth" id="btnWidth"/></label>
-			<label class="btnDetail">Button height: <input type="number" value="24" name="btnHeight" id="btnHeight"/></label>
-
-			<h3>Misc. Options</h3>
-
-			<input type="hidden" name="includeGamepad" id="includeGamepadHidden" value="0"/>
-			<label>Include HTML5 Gamepad API support: <input type="checkbox" name="includeGamepad" id="includeGamepad" value="1" checked/></label>
-
-			<input type="hidden" name="includeFocus" id="includeFocusHidden" value="0"/>
-			<label>Include focus snippet (useful for iframe embeds): <input type="checkbox" name="includeFocus" id="includeFocus" value="1" checked/></label>
-
-			<label>Scale: <input type="number" name="scale" id="scale" value="4"/></label>
-			<label>Game: <input type="text" name="game" id="game"/></label>
-
-			<h3>Colour Options</h3>
-
-			<button type="button" onclick='$("input.color-picker").spectrum("option", "showPaletteOnly", !$("input.color-picker").spectrum("option", "showPaletteOnly"));'>Toggle detailed colours</button>
-
-			<table style="table-layout:fixed;">
-				<thead>
+				<table border=1 gap=0>
 					<tr>
-						<th>Page background</th>
-						<th>Button background</th>
-						<th>Button background (hover)</th>
-						<th>Text</th>
+						<td>
+							<input type="hidden" name="includeBtnRestart" id="includeBtnRestartHidden" value="0"/>
+							<label class="btnDetail">Restart: <input type="checkbox" name="includeBtnRestart" id="includeBtnRestart" value="1" checked/></label>
+						</td>
+						<td>
+							<input type="hidden" name="includeBtnPause" id="includeBtnPauseHidden" value="0"/>
+							<label class="btnDetail">Pause: <input type="checkbox" name="includeBtnPause" id="includeBtnPause" value="1" checked/></label>
+						</td>
+						<td>
+							<input type="hidden" name="includeBtnFullscreen" id="includeBtnFullscreenHidden" value="0"/>
+							<label class="btnDetail">Fullscreen: <input type="checkbox" name="includeBtnFullscreen" id="includeBtnFullscreen" value="1" checked/></label>
+						</td>
+						<td>
+							<input type="hidden" name="includeBtnSound" id="includeBtnSoundHidden" value="0"/>
+							<label class="btnDetail">Sound: <input type="checkbox" name="includeBtnSound" id="includeBtnSound" value="1" checked/></label>
+				
+						</td>
+						<td>
+							<input type="hidden" name="includeBtnLink" id="includeBtnLinkHidden" value="0"/>
+							<label class="btnDetail">Link: <input type="checkbox" name="includeBtnLink" id="includeBtnLink" value="1" checked/></label>
+						</td>
 					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><input type="text" class="color-picker" value="#fff1e8" name="color-bg" id="color-bg" onchange="document.getElementById('preview-page').style.background=this.value;"/></td>
-						<td><input type="text" class="color-picker" value="#5f574f" name="color-btnBg" id="color-btnBg" onchange="document.getElementById('preview-buttons').style.background=this.value;"/></td>
-						<td><input type="text" class="color-picker" value="#c2c3c7" name="color-btnBgHover" id="color-btnBgHover" onchange=""/></td>
-						<td><input type="text" class="color-picker" value="#fff1e8" name="color-text" id="color-text" onchange="document.getElementById('preview-buttons').style.color=this.value;"/></td>
-				</tbody>
-			</table>
-			<br>
+				</table>
+				
+				
+				<label class="btnDetail">Link button label: <input type="text" value="Carts" name="btnLinkLbl" id="btnLinkLbl"/></label>
+				<label class="btnDetail">Link button target: <input type="text" value="http://www.lexaloffle.com/bbs/?cat=7&sub=2" name="btnLinkTgt" id="btnLinkTgt"/></label>
+
+				<label class="btnDetail">Button width: <input type="number" value="100" name="btnWidth" id="btnWidth"/></label>
+				<label class="btnDetail">Button height: <input type="number" value="24" name="btnHeight" id="btnHeight"/></label>
+			</section>
+
+			<section style="display:inline-block;float:left;">
+				<h3>Misc. Options</h3>
+
+				<input type="hidden" name="includeGamepad" id="includeGamepadHidden" value="0"/>
+				<label>Include HTML5 Gamepad API support: <input type="checkbox" name="includeGamepad" id="includeGamepad" value="1" checked/></label>
+
+				<input type="hidden" name="includeFocus" id="includeFocusHidden" value="0"/>
+				<label>Include focus snippet (useful for iframe embeds): <input type="checkbox" name="includeFocus" id="includeFocus" value="1" checked/></label>
+
+				<label>Scale: <input type="number" name="scale" id="scale" value="4"/></label>
+				<label>Game: <input type="text" name="game" id="game"/></label>
+			</section>
+
+			<section style="display:block;clear:both;">
+				<h3>Colour Options</h3>
+
+				<button type="button" onclick='$("input.color-picker").spectrum("option", "showPaletteOnly", !$("input.color-picker").spectrum("option", "showPaletteOnly"));'>Toggle detailed colours</button>
+
+				<table style="table-layout:fixed;">
+					<thead>
+						<tr>
+							<th>Page background</th>
+							<th>Button background</th>
+							<th>Button background (hover)</th>
+							<th>Text</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" class="color-picker" value="#fff1e8" name="color-bg" id="color-bg" onchange="document.getElementById('preview-page').style.background=this.value;"/></td>
+							<td><input type="text" class="color-picker" value="#5f574f" name="color-btnBg" id="color-btnBg" onchange="document.getElementById('preview-buttons').style.background=this.value;"/></td>
+							<td><input type="text" class="color-picker" value="#c2c3c7" name="color-btnBgHover" id="color-btnBgHover" onchange=""/></td>
+							<td><input type="text" class="color-picker" value="#fff1e8" name="color-text" id="color-text" onchange="document.getElementById('preview-buttons').style.color=this.value;"/></td>
+					</tbody>
+				</table>
+			</section>
 			<button type="submit">Create</button>
 		</form>
 
