@@ -17,6 +17,7 @@
 
 	$includeButtons = get("includeButtons", true);
 
+	$includeFocus = get("includeFocus", true);
 	$includeGamepad = get("includeGamepad", true);
 
 	$totalHeight = $height;
@@ -218,6 +219,15 @@
 					}
 
 					document.addEventListener('keydown', onKeyDown_blocker, false);
+
+					<?php if($includeFocus){ ?>
+					// sometimes iframes have issues getting focus, so
+					// attempt to auto-focus right now and also when we get clicked
+					window.focus();
+					document.addEventListener('mousedown',function(event){
+						window.focus();
+					});
+					<?php } ?>
 				</script>
 				<!-- BUTTONS -->
 				<?php if($includeButtons){
