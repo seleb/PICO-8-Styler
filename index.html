@@ -17,9 +17,6 @@
 	section{
 		padding-top: 0;
 	}
-	label{
-		display:block;
-	}
 	input:focus {
     	outline-color: #fa5c5c;
 	}
@@ -159,10 +156,10 @@
 				</table>
 				
 				
-				<label class="btnDetail">Link button label: <input type="text" value="Carts" name="btnLinkLbl" id="btnLinkLbl"/></label>
-				<label class="btnDetail">Link button target: <input type="text" value="http://www.lexaloffle.com/bbs/?cat=7&sub=2" name="btnLinkTgt" id="btnLinkTgt"/></label>
+				<label class="btnDetail">Link button label: <input type="text" value="Carts" name="btnLinkLbl" id="btnLinkLbl"/></label><br>
+				<label class="btnDetail">Link button target: <input type="text" value="http://www.lexaloffle.com/bbs/?cat=7&sub=2" name="btnLinkTgt" id="btnLinkTgt"/></label><br>
 
-				<label class="btnDetail">Button width: <input type="number" value="100" name="btnWidth" id="btnWidth"/></label>
+				<label class="btnDetail">Button width: <input type="number" value="100" name="btnWidth" id="btnWidth"/></label><br>
 				<label class="btnDetail">Button height: <input type="number" value="24" name="btnHeight" id="btnHeight"/></label>
 			</section>
 
@@ -170,13 +167,12 @@
 				<h3>Misc. Options</h3>
 
 				<input type="hidden" name="includeGamepad" id="includeGamepadHidden" value="0"/>
-				<label>Include HTML5 Gamepad API support: <input type="checkbox" name="includeGamepad" id="includeGamepad" value="1" checked/></label>
+				<label>Include HTML5 Gamepad API support: <input type="checkbox" name="includeGamepad" id="includeGamepad" value="1" checked/></label><br>
 
 				<input type="hidden" name="includeFocus" id="includeFocusHidden" value="0"/>
-				<label>Include focus snippet (useful for iframe embeds): <input type="checkbox" name="includeFocus" id="includeFocus" value="1" checked/></label>
+				<label>Include focus snippet (useful for iframe embeds): <input type="checkbox" name="includeFocus" id="includeFocus" value="1" checked/></label><br>
 
 				<label>Scale: <input type="number" name="scale" id="scale" value="4"/></label>
-				<label>Game: <input type="text" name="game" id="game"/></label>
 			</section>
 
 			<section style="display:block;clear:both;">
@@ -202,6 +198,7 @@
 					</tbody>
 				</table>
 			</section>
+			<label>Game: <input type="text" name="game" id="game"/></label>
 			<button type="submit">Create</button>
 		</form>
 
