@@ -7,24 +7,26 @@ if(gamepads.available){
 	function pushGamepadToButtons(){
 		gamepads.update();
 		
-		for(var i=0; i<btns.length;++i){
-			var stick=gamepads.getAxes(0,2,i);
-			var dpad=gamepads.getDpad(i);
+		for(var p=0; p<pico8_buttons.length;++p){
+			var stick=gamepads.getAxes(0,2,p);
+			var dpad=gamepads.getDpad(p);
 			var btns=[
 				stick[0] < -thresh || dpad[0] < -thresh,
 				stick[0] > thresh || dpad[0] > thresh,
-				stick[1] < -thresh || dpad[1] < -thresh,
 				stick[1] > thresh || dpad[1] > thresh,
-				gamepads.isDown(0,i) || gamepads.isDown(3,i),
-				gamepads.isDown(2,i) || gamepads.isDown(1,i)
+				stick[1] < -thresh || dpad[1] < -thresh,
+				gamepads.isDown(0,p) || gamepads.isDown(3,p),
+				gamepads.isDown(2,p) || gamepads.isDown(1,p)
 			];
 			
 			var input=0;
-			if(btns[i]){
-				input|=Math.pow(2,i);
+			for(var i=0; i<btns.length;++i){
+				if(btns[i]){
+					input|=Math.pow(2,i);
+				}
 			}
+			pico8_buttons[p]=input;
 		}
-		pico8_buttons[0]=input;
 		
 		requestAnimationFrame(pushGamepadToButtons);
 	}

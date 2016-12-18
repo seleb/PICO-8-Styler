@@ -136,7 +136,7 @@
 
 	<body style="background:<?php echo $colors["bg"]; ?>">
 		<center>
-			<div <?php if(!$includeButtons){ echo 'class="pico8_el"'} ?> style="width:<?php echo $width; ?>px;">
+			<div <?php if(!$includeButtons){ echo 'class="pico8_el"'; } ?> style="width:<?php echo $width; ?>px;">
 				<!-- CANVAS -->
 				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
@@ -150,7 +150,7 @@
 
 				<!-- GAMEPADS -> PICO-8 BUTTONS -->
 				<script>
-					<?php echo file_get_contents("gamepads-to-pico8".. ($includeGamepadMultiplayer ? "-multiplayer" : "-singleplayer") ..".js"); ?>
+					<?php echo file_get_contents("gamepads-to-pico8" . ($includeGamepadMultiplayer ? "-multiplayer" : "-singleplayer") . ".js"); ?>
 				</script>
 				<?php } ?>
 
