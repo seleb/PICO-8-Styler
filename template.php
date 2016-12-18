@@ -19,6 +19,9 @@
 
 	$includeFocus = get("includeFocus", true);
 	$includeGamepad = get("includeGamepad", true);
+	if($includeGamepad){
+		$includeGamepadMultiplayer = get("includeGamepadMultiplayer", false);
+	}
 
 	$totalHeight = $height;
 
@@ -138,6 +141,20 @@
 				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
 				<!-- SCRIPTS -->
+
+				<?php if($includeGamepad){ ?>
+				<!-- GAMEPAD API WRAPPER -->
+				<script>
+					<?php echo file_get_contents("input-gamepads.js"); ?>
+				</script>
+
+				<!-- GAMEPADS -> PICO-8 BUTTONS -->
+				<script>
+					<?php echo file_get_contents("gamepads-to-pico8".. ($includeGamepadMultiplayer ? "-multiplayer" : "-singleplayer") ..".js"); ?>
+				</script>
+				<?php } ?>
+
+				<script async type="text/javascript" src="<?php echo $game; ?>.js"></script>
 				<script type="text/javascript">
 					var require = null; // fix for node.js issue (prevents game from running when opened in something like NW.js)
 
@@ -162,57 +179,7 @@
 						arguments: ["-width","<?php echo $width; ?>","-height","<?php echo $height; ?>"],
 					};
 					Module.canvas = canvas;
-					
-					/*
-					// When pico8_buttons is defined, PICO-8 takes each int to be a live bitfield
-					// representing the state of each player's buttons
-					
-					var pico8_buttons = [0, 0, 0, 0, 0, 0, 0, 0]; // max 8 players
-					pico8_buttons[0] = 2 | 16; // example: player 0, RIGHT and Z held down
-					*/
-				</script>
-				<?php if($includeGamepad){ ?>
-				<script>
-					<?php echo file_get_contents("input-gamepads.js"); ?>
-				</script>
 
-				<script>
-					var pico8_buttons = [0, 0, 0, 0, 0, 0, 0, 0];
-
-					gamepads.init();
-
-					if(gamepads.available){
-						var thresh=(gamepads.deadZone+gamepads.snapZone)/2;
-						function pushGamepadToButtons(){
-							gamepads.update();
-
-							var stick=gamepads.getAxes(0,2);
-							var dpad=gamepads.getDpad();
-							var btns=[
-								stick[0] < -thresh || dpad[0] < -thresh,
-								stick[0] > thresh || dpad[0] > thresh,
-								stick[1] < -thresh || dpad[1] < -thresh,
-								stick[1] > thresh || dpad[1] > thresh,
-								gamepads.isDown(0) || gamepads.isDown(3),
-								gamepads.isDown(2) || gamepads.isDown(1)
-							];
-							
-							var input=0;
-							for(var i=0; i<btns.length;++i){
-								if(btns[i]){
-									input|=Math.pow(2,i);
-								}
-							}
-							pico8_buttons[0]=input;
-							
-							requestAnimationFrame(pushGamepadToButtons);
-						}
-						pushGamepadToButtons();
-					}
-				</script>
-				<?php } ?>
-				<script async type="text/javascript" src="<?php echo $game; ?>.js"></script>
-				<script>
 					// key blocker. prevent cursor keys from scrolling page while playing cart.
 					function onKeyDown_blocker(event) {
 						event = event || window.event;
@@ -237,8 +204,9 @@
 					});
 					<?php } ?>
 				</script>
-				<!-- BUTTONS -->
+
 				<?php if($includeButtons){
+					echo "<!-- BUTTONS -->\n";
 					if($includeBtnRestart){
 						echo '<div class="pico8_el" onclick="Module.pico8Reset();"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dOwoAMQhE15A+rfc/3bZ7AlMnQfywCkKsfcgMM9ZP+QHtIn0vLeBAFduiFdQ/0DmvtR5LXJ6CPSXe2ZXcFNlTxFbemKrbZPs35XogeS9xeQr+anT6LzoOwEDwZJ7jwhXUnwkTTiDQ2Ja34AAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Reset" width="12" height="12"/> Reset</div>';
 					}
