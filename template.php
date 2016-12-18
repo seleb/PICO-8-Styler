@@ -47,6 +47,12 @@
 		<title><?php echo $game; ?> PICO-8 Cartridge</title>
 		<meta name="description" content="">
 
+		<!--
+		HTML page created using PICO-8 Styler
+		URL: https://seansleblanc.itch.io/pico-8-styler
+		version: 1.6
+		-->
+
 		<style type="text/css">
 		<!--
 
