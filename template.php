@@ -15,10 +15,10 @@
 	$width = 128*get("scale", "4");
 	$height = 128*get("scale", "4");
 
-	$includeButtons = get("includeButtons", true);
+	$includeButtons = get("includeButtons", false);
 
-	$includeFocus = get("includeFocus", true);
-	$includeGamepad = get("includeGamepad", true);
+	$includeFocus = get("includeFocus", false);
+	$includeGamepad = get("includeGamepad", false);
 	if($includeGamepad){
 		$includeGamepadMultiplayer = get("includeGamepadMultiplayer", false);
 	}
@@ -26,11 +26,11 @@
 	$totalHeight = $height;
 
 	if($includeButtons){
-		$includeBtnRestart = get("includeBtnRestart", true);
-		$includeBtnPause = get("includeBtnPause", true);
-		$includeBtnFullscreen = get("includeBtnFullscreen", true);
-		$includeBtnSound = get("includeBtnSound", true);
-		$includeBtnLink = get("includeBtnLink", true);
+		$includeBtnRestart = get("includeBtnRestart", false);
+		$includeBtnPause = get("includeBtnPause", false);
+		$includeBtnFullscreen = get("includeBtnFullscreen", false);
+		$includeBtnSound = get("includeBtnSound", false);
+		$includeBtnLink = get("includeBtnLink", false);
 
 		$btnCount = $includeBtnRestart+$includeBtnPause+$includeBtnFullscreen+$includeBtnSound+$includeBtnLink;
 
