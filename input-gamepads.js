@@ -45,7 +45,11 @@ var gamepads={
         	console.log("Gamepad API available");
         	if(navigator.userAgent.indexOf('Firefox/') != -1){
         		// listen to connection events for firefox
-		        $(window).on("gamepadconnected gamepaddisconnected", function(event) {
+		        window.addEventListener("gamepadconnected", function(event) {
+		            console.log("gamepad connection event");
+		            this.pollconnections(event);
+		        }.bind(this));
+		        window.addEventListener("gamepaddisconnected", function(event) {
 		            console.log("gamepad connection event");
 		            this.pollconnections(event);
 		        }.bind(this));
@@ -62,7 +66,9 @@ var gamepads={
 
 		// assume existing players' gamepads aren't enabled until they're found
 		for(var i = 0; i < this.players.length; ++i){
-			this.players[i].disabled = true;
+			if(this.players[i]){
+				this.players[i].disabled = true;
+			}
 		}
 
     	var gps=navigator.getGamepads();
