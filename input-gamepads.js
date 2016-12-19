@@ -58,7 +58,12 @@ var gamepads={
 	},
 
 	pollconnections:function(event){
-		this.connected=false;
+		this.connected = false;
+
+		// assume existing players' gamepads aren't enabled until they're found
+		for(var i = 0; i < this.players.length; ++i){
+			this.players[i].disabled = true;
+		}
 
     	var gps=navigator.getGamepads();
     	for(var i=0; i < gps.length; ++i){
@@ -67,11 +72,11 @@ var gamepads={
 	    		if(gp.connected){
 	    			if(this.players[gp.index] == null){
 	    				// new player
+	    				gp.down = [];
+	    				gp.justDown = [];
+	    				gp.justUp = [];
+	    				gp.axesPrev = [];
 	    				this.players[gp.index] = gp;
-	    				this.players[gp.index].down = [];
-	    				this.players[gp.index].justDown = [];
-	    				this.players[gp.index].justUp = [];
-	    				this.players[gp.index].axesPrev = [];
 	    			}else{
 	    				// returning player, copy old button states before replacing
 	    				gp.down = this.players[gp.index].down;
@@ -81,8 +86,9 @@ var gamepads={
 	    				this.players[gp.index] = gp;
 	    			}
 					this.connected = true;
+    				this.players[gp.index].disabled = false;
 	    		}else{
-	    			this.players[gps[i].index] = null;
+	    			this.players[gp.index] = null;
 	    		}
     		}
     	}
@@ -123,7 +129,11 @@ var gamepads={
 	// returns _player's gamepad
 	// if one doesn't exist, returns an object with gamepad properties reflecting a null state
 	getPlayer:function(_player){
-		return this.players[_player]||{connected:false,down:[],justDown:[],justUp:[],axes:[],axesPrev:[],buttons:[]};
+		if(this.players[_player] && this.players[_player].connected && !this.players[_player].disabled){
+			return  this.players[_player];
+		}else{
+		return {connected:false,disabled:true,down:[],justDown:[],justUp:[],axes:[],axesPrev:[],buttons:[]};
+		}
 	},
 
 	// returns [x,y] representing the two axes for _player at _offset
