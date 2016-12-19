@@ -4,7 +4,11 @@
 		return isset($_GET[$s]) ? $_GET[$s] : $dv;
 	}
 
-	$game = basename(get("game", "star picker-upper"), ".js");
+	$game = get("game", "star picker-upper");
+	// if the filename includes the .js extension, remove it (it's already part of the script tag)
+	if(substr($game,-3) == ".js"){
+		$game = substr($game,0,-3);
+	}
 	$colors = array(
 		"text"=>get("color-text", "#FFF"),
 		"bg"=>get("color-bg", "#000"),
