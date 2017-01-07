@@ -13,8 +13,8 @@ if(gamepads.available){
 			var btns=[
 				stick[0] < -thresh || dpad[0] < -thresh,
 				stick[0] > thresh || dpad[0] > thresh,
-				stick[1] > thresh || dpad[1] > thresh,
-				stick[1] < -thresh || dpad[1] < -thresh,
+				stick[1] < -thresh || dpad[1] > thresh,
+				stick[1] > thresh || dpad[1] < -thresh,
 				gamepads.isDown(0,p) || gamepads.isDown(3,p),
 				gamepads.isDown(2,p) || gamepads.isDown(1,p)
 			];
