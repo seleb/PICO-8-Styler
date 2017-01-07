@@ -26,6 +26,7 @@
 	if($includeGamepad){
 		$includeGamepadMultiplayer = get("includeGamepadMultiplayer", false);
 	}
+	$hideCursor = get("hideCursor", false);
 
 	$totalHeight = $height;
 
@@ -92,6 +93,9 @@
 			image-rendering: crisp-edges;
 			-ms-interpolation-mode: nearest-neighbor;
 			image-rendering: pixelated;
+			<?php if($hideCursor){ ?>
+			cursor: none;
+			<?php } ?>
 		}
 
 		<?php if($includeButtons){ ?>
