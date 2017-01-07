@@ -87,6 +87,7 @@
 			width: <?php echo $width; ?>px;
 			height: <?php echo $height; ?>px;
 
+            image-rendering: optimizeSpeed;
 			image-rendering: -moz-crisp-edges;
 			image-rendering:   -o-crisp-edges;
 			image-rendering: -webkit-optimize-contrast;

@@ -15,8 +15,9 @@ if(gamepads.available){
 				stick[0] > thresh || dpad[0] > thresh,
 				stick[1] < -thresh || dpad[1] > thresh,
 				stick[1] > thresh || dpad[1] < -thresh,
-				gamepads.isDown(0,p) || gamepads.isDown(3,p),
-				gamepads.isDown(2,p) || gamepads.isDown(1,p)
+				gamepads.isDown(gamepads.A, p) || gamepads.isDown(gamepads.Y, p),
+				gamepads.isDown(gamepads.B, p) || gamepads.isDown(gamepads.X, p),
+				gamepads.isDown(gamepads.START, p) || gamepads.isDown(gamepads.BACK, p)
 			];
 			
 			var input=0;
