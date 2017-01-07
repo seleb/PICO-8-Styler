@@ -36,6 +36,7 @@
 		font-size:1.2em;
 	}
 	button{
+		position:relative;
 		cursor:pointer;
 		padding:5px;
 		border:0;
@@ -52,6 +53,23 @@
 	button:hover{
 		background-color:#ff8585;
 	}
+
+
+	input:focus,
+	button:focus,
+	select:focus{
+		outline-color: #fa5c5c;
+
+	}
+	input:focus:active,
+	button:focus:active,
+	select:focus:active{
+		outline: none;
+	}
+	button:active{
+		top:1px;
+	}
+
 	</style>
 
 	<script>
